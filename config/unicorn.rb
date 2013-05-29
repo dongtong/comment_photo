@@ -1,4 +1,4 @@
-root = "/root/workspace/comment_photo"
+root = "/home/deployer/apps/comment_photo"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
