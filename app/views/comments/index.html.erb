@@ -1,0 +1,21 @@
+<!--Photo list start-->
+<div data-role="page" id="comments_list" data-dom-cache="true" data-inset="true">
+    <div data-role="header" data-theme="b" data-position="inline">
+        <a href="<%=@photo %>" data-rel="back" data-icon="arrow-l">返回</a>
+        <h1>评论列表</h1>
+        <a href="#" data-icon="refresh">刷新</a>
+    </div>
+    <div data-role="content">   
+        <ul data-role="listview" class="thumbnails" data-inset="true" data-filter="true" data-filter-placeholder="搜索...">
+            <% @comments.each do |comment|%>
+            <li>
+                    <%= image_tag '111-user.png', :class => "ui-li-icon"%>
+                    <p><%= comment.content -%></p>
+                    <span class="ui-li-count">1分钟前</span>
+            </li>
+            <%end%>
+        </ul>       
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Photo list end-->

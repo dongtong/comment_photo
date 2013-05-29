@@ -1,0 +1,85 @@
+<!--Photo detail screen start-->
+<div data-role="page" id="photo_detail">
+    <div data-role="header" data-theme="b">
+        <a href="#home" data-rel="back" data-icon="arrow-l">返回</a>
+        <h1><%= @photo.name -%></h1>
+        <a href="#comment" data-icon="edit" data-transition="flip">评论</a>
+    </div>
+    
+    <div data-role="content">
+        <!--Photo details info-->
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">
+                <div data-type='horizontal'>
+                            <a href='#' id="tweet_good" data-role='button' data-icon='good' data-inline="true" data-iconpos='notext'>plus</a>
+                </div>
+            <li>
+                <%= image_tag @photo.pic.url(:thumb), :alt=>"TODO", :width => "70", :height => "80"%>
+                <h3><%= @photo.name -%></h3>
+                <p>赞: <em><%= @photo.score.to_i -%></em></p>
+            </li>
+        </ul>
+        <!--Photo details info-->
+            
+        <!--Photo comments-->
+        <ul data-role="listview" data-inset="true" data-count-theme="e">
+            <li data-role="list-divider">评论列表<p class="ui-li-aside"><span class="ui-li-count"><%= @photo.comments.size -%></span></p></li>
+            <%@photo.comments.each do |comment| %>
+                <li>
+                    <%= image_tag '111-user.png', :class => "ui-li-icon"%>
+                    <p><%= comment.content -%></p>
+                    <span class="ui-li-count">1分钟前</span>
+                </li>
+            <%end-%>
+            <li>
+                <p><a href="<%= photo_comments_path(@photo)%>" rel="external">更多...</a></p>
+            </li>       
+        </ul>
+        <!--Photo comments-->
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Photo detail screen end-->
+<!--Comment screen-->
+<div data-role="page" id="comment">
+    <div data-role="header" data-theme="b">
+        <a href="#photo_detail" data-rel="back" data-icon="delete">取消</a>
+        <h1>评论</h1>
+    </div>
+    <div data-role="content" data-theme="c">
+       <%= form_for [@photo, Comment.new] do |f| %>
+          <div class="comment-content" data-role="fieldcontain">
+                 <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider">
+                                    说些什么吧:
+                    </li>
+                    <li>
+                        <div class="content" data-role="fieldcontain">
+                            <label for="textarea" class="ui-hidden-accessible">说点什么:</label>
+                            <textarea cols="40" rows="8" name="comment[content]" id="comment_content" placeholder="说点什么..." data-theme="d"></textarea>    
+                        </div>
+                    </li>
+                </ul>
+            </div>      
+            <div class="submit" data-role="fieldcontain">
+                <input type="submit" value="发表" />
+            </div>
+        <% end %>
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Comment screen-->
+<script type="text/javascript" charset="UTF-8">
+    $(function(){
+        $('#tweet_good').click(function(){
+            $.post('/photo/1/like', function(data){
+                if(data.result === 'success'){
+                    alert("赞成功");
+                    
+                }else{
+                    alert("赞失败")
+                }
+            })
+        });
+    });
+</script>

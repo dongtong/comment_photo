@@ -1,0 +1,65 @@
+<!--Photo list start-->
+<div data-role="page" id="home" data-dom-cache="true" data-inset="true">
+    <div data-role="header" data-theme="b" data-position="inline">
+        <a href="#upload_photo" data-icon="plus">上传照片</a>
+        <h1>评图</h1>
+        <a href="#" data-icon="refresh">刷新</a>
+    </div>
+    <div data-role="content">   
+        <ul data-role="listview" class="thumbnails" data-inset="true" data-count-theme="e" data-split-icon="star" data-filter="true" data-filter-placeholder="搜索...">
+            <% @photos.each do |photo|%>
+            <li>
+               <a href="/photos/<%= photo.id -%>" rel="external">
+                    <%= image_tag photo.pic.url(:thumb), :alt=>"TODO", :width => "70", :height => "80"%>
+                    <h3><%= photo.name-%></h3>
+                    <p>Dong, Fnst</p>
+                    <p>赞: <em><%= photo.score.to_i -%></em></p>
+                    <span class="ui-li-count"><%= photo.comments.size -%></span>
+                </a>
+            </li>
+            <%end%>
+        </ul>       
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Photo list end-->
+
+<!--Upload user photo start-->
+<div data-role="page" id="upload_photo">
+    <div data-role="header" data-theme="b">
+        <a href="#home" data-rel="back" data-icon="arrow-l">返回</a>
+        <h1>上传图片</h1>
+        <a href="#home" data-icon="delete">取消</a>
+    </div>
+    <div data-role="content">
+        <%= form_for Photo.new, :url => photos_path, :html => { :multipart => true, "data-ajax"=>"false"} do |f| %>
+            <div class="description" data-role="fieldcontain">
+                 <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider">
+                                    图片信息:
+                    </li>
+                    <li>
+                        <div class="decription" data-role="fieldcontain">
+                            <label for="photo">图片描述:</label>
+                            <input type="text" name="photo[name]" id="photo_name" value="" required placeholder="请简短介绍图片..."></input>
+                        </div>
+                        <div class="photo" data-role="fieldcontain">
+                            <label for="photo">上传文件:</label>
+                            <input type="file" name="photo[pic]" id="photo_pic" />
+                        </div>
+                    </li>
+                </ul>
+                    
+            </div>      
+            <div class="submit" data-role="fieldcontain">
+                <input type="submit" value="上传" />
+            </div>
+         <%end-%>
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Upload user photo end-->
+
+
+
+

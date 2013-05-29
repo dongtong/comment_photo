@@ -1,0 +1,54 @@
+<!--Ranking start-->
+<div data-role="page" id="score_rank">
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#home" data-rel="back" data-icon="arrow-l">返回</a>
+        <h1>排名</h1>
+        <div class="segmented-control ui-bar-d">
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#score_rank" data-role="button" data-theme="b" data-transition="none">积分排名</a>
+                <a href="#comment_rank" data-role="button" data-theme="d" data-transition="none" ref="external">评论排名</a>
+            </div>
+        </div>
+    </div>
+    <div data-role="content">
+        <ol data-role="listview" data-inset="true" data-count-theme="e" data-filter="true" data-filter-placeholder="搜索排名...">
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">10</span></li>
+            <li><h3>Zhang san</h3><span class="ui-li-count">9</span></li>
+            <li><h3>李四</h3><span class="ui-li-count">8</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">7</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">6</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">5</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">4</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">3</span></li>
+        </ol>
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+
+<!--Comment rank-->
+<div data-role="page" id="comment_rank">
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#home" data-rel="back" data-icon="arrow-l">返回</a>
+        <h1>排名</h1>
+        <div class="segmented-control ui-bar-d">
+            <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <a href="#score_rank" data-role="button" data-theme="d" data-transition="none">积分排名</a>
+                <a href="#comment_rank" data-role="button" data-theme="b" data-transition="none">评论排名</a>
+            </div>
+        </div>
+    </div>
+    <div data-role="content">
+        <ol data-role="listview" data-inset="true" data-count-theme="e" data-filter="true" data-filter-placeholder="搜索排名...">
+            <li><h3>ChaChaCha</h3><span class="ui-li-count">10</span></li>
+            <li><h3>Zhang san</h3><span class="ui-li-count">9</span></li>
+            <li><h3>李四</h3><span class="ui-li-count">8</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">7</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">6</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">5</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">4</span></li>
+            <li><h3>Dong Jinhu</h3><span class="ui-li-count">3</span></li>
+        </ol>
+    </div>
+    <%= render :partial => 'common/footer'%>
+</div>
+<!--Ranking end-->

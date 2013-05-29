@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+header {
+    margin-bottom: 42px;
+}
+
+    .segmented-control {text-align:center;}
+    .segmented-control .ui-controlgroup {margin: 0.2em;}
+    .ui-control-active, .ui-control-inactive {border-style:solid; border-color: gray;}
+    .ui-control-active {background: #BBB;}
+    .ui-control-inactive {background: #DDD;}
+    .ui-user {
+        background: url(images/user_18x24.png) no-repeat;
+        width: 24px;
+        height: 24px;
+        float: left;
+    }
+     /* wrap the text for the comment */
+    .ui-li-desc { white-space: normal; margin-right: 20px; }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>评图</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "jquery-1.9.1", "bootstrap.min"%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <a class="brand" href="/">评图</a>
+                <ul class="nav pull-left">
+                    <li class="nav_lotteries">
+                        <a href="/mobile"><i class="icon-gift"></i>移动版</a>
+                    </li>
+                </ul>
+             </div>
+        </nav>
+    </header>
+    <section class="container-fluid">
+        <%= yield %>
+    </section>
+</body>
+</html>
